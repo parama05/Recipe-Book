@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-md bg-secondary bg-opacity-10 p-0">
+    <div class="container-fluid ">
+        <div class="navbar-header">
+            <a style="cursor:pointer" class="navbar-brand">Recipe Book</a>
+        </div>
+
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li *ngIf="isAuthenticated"><a routerLink="/recipes" routerLinkActive="active"
+                        class="nav-link text-decoration-none text-dark me-2">Recipes</a></li>
+                <li *ngIf="!isAuthenticated"><a routerLink="/auth" routerLinkActive="active"
+                        class="nav-link text-decoration-none text-dark">Authenticate</a></li>
+                <li><a routerLink="/shopping-list" routerLinkActive="active"
+                        class="nav-link text-decoration-none text-dark">Shopping List</a></li>
+            </ul>
+            <ul class="nav navbar-nav ms-auto">
+                <li *ngIf="isAuthenticated">
+                    <a style="cursor:pointer" type="submit" class="text-decoration-none text-dark me-3" (click)="onLogout()">Logout</a>
+                </li>
+                <li class="dropdown" appDropdownDirective *ngIf="isAuthenticated">
+                    <a class="dropdown-toggle text-decoration-none text-dark" role="button">Manage</a>
+                    <ul class="dropdown-menu dropdown-menu-align">
+                        <a class="dropdown-item" style="cursor:pointer" (click)="onSaveData()">Save Data</a>
+                        <a class="dropdown-item" style="cursor:pointer" (click)="onFetchData()">Fetch Data</a>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

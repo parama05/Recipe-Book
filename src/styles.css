@@ -1,0 +1,14 @@
+.dropdown-menu-align {
+  right: 0 !important;
+  left: auto !important;
+}
+.dropdown {
+  position: relative;
+}
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+}
+.active{
+  background-color: gainsboro;
+}
